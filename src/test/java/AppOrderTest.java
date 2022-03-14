@@ -9,27 +9,27 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class AppOrderTest {
-    private WebDriver driver;
+    private WebDriver driver = new ChromeDriver();
 
     @BeforeAll
     static void setUpAll() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Desktop\\JAVA\\2.1.-testWebInterface\\driver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "driver/mac/chromedriver");
     }
 
     @BeforeEach
-    void setUp(){
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
-        driver = new ChromeDriver(options);
-    }
+//    void setUp(){
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--disable-dev-shm-usage");
+//        options.addArguments("--no-sandbox");
+//        options.addArguments("--headless");
+//        driver = new ChromeDriver(options);
+//    }
 
-    @AfterEach
-    void tearDown() {
-        driver.quit();
-        driver = null;
-    }
+//    @AfterEach
+//    void tearDown() {
+//        driver.quit();
+//        driver = null;
+//    }
 
     @Test
     void shouldTestForm(){
@@ -37,10 +37,11 @@ public class AppOrderTest {
         WebElement textElements = driver.findElement(By.className("input__control"));
         textElements.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Ivan");
     }
-    @Test
-    void test(){
-        WebElement element = driver.findElement(By.id("root"));
-        String text = element.getText();
-    }
+//    @Test
+//    void test(){
+//        driver.get("http://localhost:9999");
+//        WebElement element = driver.findElement(By.id("root"));
+//        String text = element.getText();
+//    }
 
 }
